@@ -1,0 +1,56 @@
+#div_app{
+  text-align: center;
+  width: 500px;
+  margin: auto;
+  margin-top: 10%;
+}
+table {
+    counter-reset: rowNumber;
+}
+td:first-child::before {
+    content: counter(rowNumber);
+    counter-increment: rowNumber;
+    min-width: 2em;
+    margin-right: 0.5em;
+}
+
+  #tabela{
+   width: 90%;
+   margin: 10px;
+  }
+  td{
+    display: flex;
+    width: 440px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0px 0 10px 0;
+    text-transform: capitalize;
+    font-size: 15px;
+  }
+  tbody{
+    white-space: nowrap;
+     overflow: hidden;
+  }
+  #button2{
+    position: absolute;
+    left: 10px;
+    border: none;
+    background-color: white;
+  }
+  #aplikacja{
+    position: relative;
+  }
+  #nazwa{
+    width: 270px;
+  }
+  #ilosc{
+    width: 40px;
+  }
+  #numer{
+    margin: 0 0 0 5px;
+    text-transform: none;
+    padding: 0;
+    border: 0;
+  }
