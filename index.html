@@ -1,183 +1,254 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lista Zakupów</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-<link rel="manifest" href="favicon/site.webmanifest">
-<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-</head>
-<body>
-
-  <div id="div_app" class="card">
-  <div class="card-header">
-  <p class="mb-0">Lista zakupów</p>
-  </div>
-  <div class="card-body">
-    <div id="aplikacja">
-      <div id="tabela">
-        <table>
-          <tbody id="cialo">
-          </tbody>
-        </table>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lista Zakupów</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="apple-touch-icon" sizes="76x76" href="src/listazakupow.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/listazakupow.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="src/listazakupow.png"
+    />
+    <link rel="manifest" href="src/listazakupow.png" />
+    <link rel="mask-icon" href="src/listazakupow.png" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+  </head>
+  <body>
+    <div id="div_app" class="card">
+      <div class="card-header">
+        <p class="mb-0">Lista zakupów</p>
       </div>
-      <div id="dodawanie">
-        <div class="input-group">
-        <input type="text" name="" id="nazwa" autocomplete="off" class="form-control"onkeyup="this.value = (this.value.normalize('NFD').replace(/[\u0300-\u036f]/g, '')).replace(/[^a-zA-Z0-9]/g, ' ' )" placeholder="np. woda" minlength="1" >
-        <input type="number" name="" id="ilosc" autocomplete="off" class="form-control"onkeyup="this.value = this.value.replace(/[^a-zA-Z0-9]/g, ' ')" placeholder="Ilosc" minlength="1" maxlength="2">
-        <button id="dodaj" class="btn btn-success">Dodaj</button>
+      <div class="card-body">
+        <div id="aplikacja">
+          <div id="tabela">
+            <table>
+              <tbody id="cialo"></tbody>
+            </table>
+          </div>
+          <div id="dodawanie">
+            <div class="input-group">
+              <input
+                type="text"
+                name=""
+                id="nazwa"
+                autocomplete="off"
+                class="form-control"
+                onkeyup="this.value = (this.value.normalize('NFD').replace(/[\u0300-\u036f]/g, '')).replace(/[^a-zA-Z0-9]/g, ' ' )"
+                placeholder="np. woda"
+                minlength="1"
+              />
+              <input
+                type="number"
+                name=""
+                id="ilosc"
+                autocomplete="off"
+                class="form-control"
+                onkeyup="this.value = this.value.replace(/[^a-zA-Z0-9]/g, ' ')"
+                placeholder="Ilosc"
+                minlength="1"
+                maxlength="2"
+              />
+              <button id="dodaj" class="btn btn-success">Dodaj</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="card-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#info"
+        >
+          Informacje o aplikacji
+        </button>
       </div>
     </div>
-  </div>
-  <div class="card-footer">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#info">Informacje o aplikacji</button>
-  </div>
-</div>
-<div class="modal fade" id="info" tabindex="-1" aria-labelledby="infoinfo" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-5" id="infoinfo">Informacje o aplikacji</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div
+      class="modal fade"
+      id="info"
+      tabindex="-1"
+      aria-labelledby="infoinfo"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="infoinfo">
+              Informacje o aplikacji
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h5 class="mb-2">O aplikacji</h5>
+            Aplikacja pozwala użytkownikowi na wprowadzanie i zapisywanie listy
+            zakupów w czasie rzeczywistym za pomocą Realtime Database Firebase.
+            Wprowadzona przez użytkownika treść jest automatycznie dodawana do
+            listy, która jest wyświetlana w interfejsie w formie punktów na
+            liście. Użytkownik może usuwać niepotrzebne elementy z listy, co
+            pozwala na łatwe zarządzanie listą zakupów.
+            <h5 class="mt-2">Technologie</h5>
+            HTML, CSS, JavaScript, Firebase, Bootstrap
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              Zamknij
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="modal-body">
-      <h5 class="mb-2">O aplikacji</h5>
-      Aplikacja zapisuje wpisaną przez użytkownika treść a następnie wyświetla ją w formie listy zakupów. Wszystko zapisywane jest za pomocą Realiime Database Firebase. Użytkownik ma możliwość usuwania wpisów z listy.
-      <h5 class="mt-2">Technologie</h5>
-      HTML, CSS, JavaScript, Firebase, Bootstrap
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Zamknij</button>
-    </div>
-    </div>
-  </div>
-  </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA5QUDoWhD45TDJpGqy1jFVp6tcqJZTGRA",
-  authDomain: "zakupyprezentacja.firebaseapp.com",
-  databaseURL: "https://zakupyprezentacja-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "zakupyprezentacja",
-  storageBucket: "zakupyprezentacja.appspot.com",
-  messagingSenderId: "88603022312",
-  appId: "1:88603022312:web:15b0cc2c77ba66b4580a5d",
-  measurementId: "G-Y40ELFK9PV"
-};
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  import{getDatabase, ref, set, child, update,remove,get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-  const db = getDatabase();
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA5QUDoWhD45TDJpGqy1jFVp6tcqJZTGRA",
+        authDomain: "zakupyprezentacja.firebaseapp.com",
+        databaseURL:
+          "https://zakupyprezentacja-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "zakupyprezentacja",
+        storageBucket: "zakupyprezentacja.appspot.com",
+        messagingSenderId: "88603022312",
+        appId: "1:88603022312:web:15b0cc2c77ba66b4580a5d",
+        measurementId: "G-Y40ELFK9PV",
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      import {
+        getDatabase,
+        ref,
+        set,
+        child,
+        update,
+        remove,
+        get,
+      } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+      const db = getDatabase();
 
-  var nazwa = document.getElementById("nazwa");
-  var ilosc = document.getElementById("ilosc");
-  function InsertData(){
-    if(nazwa.value == ""){
-      
-    }
-    else{
-      if(ilosc.value == ""){
-        ilosc.value = 1;
+      var nazwa = document.getElementById("nazwa");
+      var ilosc = document.getElementById("ilosc");
+      function InsertData() {
+        if (nazwa.value == "") {
+        } else {
+          if (ilosc.value == "") {
+            ilosc.value = 1;
+          }
+          set(ref(db, "zakupy/" + nazwa.value), {
+            Nazwa: nazwa.value,
+            Ilosc: ilosc.value,
+          });
+          window.onload = getall();
+          document.getElementById("nazwa").value = "";
+          document.getElementById("ilosc").value = "";
+        }
       }
-  	set(ref(db, "zakupy/"+nazwa.value),{
-  		Nazwa: nazwa.value,
-      Ilosc: ilosc.value
-  	});
-  	window.onload = getall();
-  	document.getElementById("nazwa").value = "";
-    document.getElementById("ilosc").value = "";
-  }
-  }
-  const input = document.getElementById("nazwa");
-  const input2 = document.getElementById("ilosc");
-input.addEventListener("keyup", (event) => {
-  if (event.keyCode === 13) {
-    InsertData();
-  }
-});
-input2.addEventListener("keyup", (event) => {
-  if (event.keyCode === 13) {
-    InsertData();
-  }
-});
-  var cialo = document.getElementById("cialo");
+      const input = document.getElementById("nazwa");
+      const input2 = document.getElementById("ilosc");
+      input.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+          InsertData();
+        }
+      });
+      input2.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+          InsertData();
+        }
+      });
+      var cialo = document.getElementById("cialo");
 
+      function AddItemToTable(nazwa, ilosc) {
+        let trow = document.createElement("trow");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let but = document.createElement("button");
+        td1.innerHTML = nazwa;
+        td2.innerHTML = "x" + ilosc;
+        td1.id = "wartosc";
+        td2.id = "numer";
+        td1.appendChild(but);
+        td1.appendChild(td2);
+        trow.appendChild(td1);
+        cialo.appendChild(trow);
 
+        but.innerHTML = "X";
+        but.id = "button2";
+        but.onclick = function () {
+          remove(ref(db, "zakupy/" + nazwa)).then(() => {
+            window.onload = getall();
+          });
+        };
+      }
 
+      function addall(nazwa) {
+        cialo.innerHTML = "";
+        nazwa.forEach((element) => {
+          AddItemToTable(element.Nazwa, element.Ilosc);
+        });
+      }
 
-  function AddItemToTable(nazwa, ilosc){
-  	let trow = document.createElement("trow");
-  	let td1 = document.createElement("td");
-  	let td2 = document.createElement("td");
-  	let but = document.createElement("button");
-  	td1.innerHTML=nazwa;
-    td2.innerHTML= "x"+ilosc;
-    td1.id = "wartosc";
-    td2.id = "numer";
-  	td1.appendChild(but)
-    td1.appendChild(td2);
-  	trow.appendChild(td1);
-  	cialo.appendChild(trow);
+      function getall() {
+        const dbRef = ref(db);
+        get(child(dbRef, "zakupy")).then((snapshot) => {
+          var zakupy = [];
+          snapshot.forEach((appendChild) => {
+            zakupy.push(appendChild.val());
+          });
+          addall(zakupy);
+          odswiezanie();
+        });
+      }
 
+      function odswiezanie() {
+        setTimeout(getall, 5000);
+      }
 
-  	but.innerHTML = "X";
-  	but.id = "button2"
-  	but.onclick = function(){
-  		remove(ref(db, "zakupy/"+nazwa))
-  		.then(()=>{
-  			window.onload = getall();
-  	})}
-  }
-
-
-
-  function addall(nazwa){
-  	cialo.innerHTML="";
-  	nazwa.forEach(element=>{
-  		AddItemToTable(element.Nazwa, element.Ilosc);
-  	});
-  }
-
-
-
-  function getall(){
-  	const dbRef = ref(db);
-  	get(child(dbRef, "zakupy"))
-  	.then((snapshot)=>{
-  		var zakupy =[];
-  		snapshot.forEach(appendChild =>{
-  			zakupy.push(appendChild.val());
-  	});
-  		addall(zakupy);
-      odswiezanie();
-
-  	})}
-
-    function odswiezanie(){
-      setTimeout(getall, 5000);
-    }
-
-  window.onload = getall;
-  var przycisk = document.getElementById("dodaj");
-  przycisk.addEventListener('click',InsertData);
-
-
-</script>
-</body>
+      window.onload = getall;
+      var przycisk = document.getElementById("dodaj");
+      przycisk.addEventListener("click", InsertData);
+    </script>
+  </body>
 </html>
